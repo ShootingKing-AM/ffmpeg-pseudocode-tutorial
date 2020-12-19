@@ -24,7 +24,7 @@ Lack of tutorials in this regard compelled me to open-source this document.
 	**a.** There are `two sets` of functions, <br/><br/>
 		i. `Standard library calls`, those are available in *libav* headers(, .libs, .dlls), and<br/>
 		ii. `ffmpeg-cli specific functions`(non-std functions), these should be understood and should be implemented in your specific project.<br/>    
-		`Non-std` function have been named as `<file>::<functionName>()` in pseudocode, so that you can refer to those specific source files to get the exact syntax.<br/>
+		`Non-std` function have been named as `<file>::<functionName>()` in pseudocode, so that you can refer to those specific source files to get the exact working.<br/>
 		`Std` function just have `<functionName>()` and usually start with `av*`
     
 	**b.** Each <kbd>tab</kbd> indicates that the upcoming function call(s) is/are inside the above function call. For example,
