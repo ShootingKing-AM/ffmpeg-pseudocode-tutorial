@@ -34,7 +34,7 @@ Lack of tutorials in this regard compelled me to open-source this document.
 	```
 	This means `bar()` function call is inside `foo()` function and `bar()` is being called by `foo()`.
   
-	**c.** `//` indicates there is code which does *something* in place of this comment, which does this function.<br/>
+	**c.** `//` indicates there is code which does *something* in place of this comment.<br/>
 		`/**/` Indicates a comment which explains the following code.<br/>
 		`///` Indicates just a comment.
 ### ffmpeg-cli Pseudocode
