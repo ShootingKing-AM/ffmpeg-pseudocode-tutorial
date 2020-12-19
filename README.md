@@ -43,11 +43,11 @@ Syntax highlighted pseudocode - [Here](https://github.com/ShootingKing-AM/ffmpeg
 Functions linked to Doxygen ffmpeg documentation. (Click to Refer).
 <pre>
 main()
-	cmdutils.c::init_dynload()
+	<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/cmdutils.c">cmdutils.c</a>::init_dynload()
 		SetDllDirectory("")
 
 	register_exit()
-		ffmpeg.c::ffmpeg_cleanup()
+		<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::ffmpeg_cleanup()
 			// Free filers FilterGraph with <a href="https://ffmpeg.org/doxygen/4.1/group__lavfi.html#ga871684449dac05050df238a18d0d493b">avfilter_graph_free</a>()
 				// for each FilterGraph's Input
 					<a href="https://ffmpeg.org/doxygen/4.1/libavutil_2fifo_8c.html#ab708d2f19b7a9592caa278256787adb6">av_fifo_generic_read</a>()
@@ -104,16 +104,16 @@ main()
 
 	<a href="https://ffmpeg.org/doxygen/4.1/group__lavf__core.html#ga84542023693d61e8564c5d457979c932">avformat_network_init</a>()
 
-	ffmpeg_opt.c::ffmpeg_parse_options()
-		options = cmdutils.c::split_commandline() /* split the commandline into an internal representation */
-			cmdutils.c::prepare_app_arguments() /* perform system-dependent conversions for arguments list */
-			cmdutils.c::init_parse_context() 
-				cmdutils.c::init_opts() 
+	<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg_opt.c">ffmpeg_opt.c</a>::ffmpeg_parse_options()
+		options = <a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/cmdutils.c">cmdutils.c</a>::split_commandline() /* split the commandline into an internal representation */
+			<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/cmdutils.c">cmdutils.c</a>::prepare_app_arguments() /* perform system-dependent conversions for arguments list */
+			<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/cmdutils.c">cmdutils.c</a>::init_parse_context() 
+				<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/cmdutils.c">cmdutils.c</a>::init_opts() 
 					<a href="https://ffmpeg.org/doxygen/4.1/group__lavu__dict.html#ga8d9c2de72b310cef8e6a28c9cd3acbbe">av_dict_set</a>()
-		cmdutils.c::parse_optgroup("GLOABAL")
+		<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/cmdutils.c">cmdutils.c</a>::parse_optgroup("GLOABAL")
 
-		cmdutils.c::open_files()
-			ffmpeg_opt.c::open_input_file()
+		<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/cmdutils.c">cmdutils.c</a>::open_files()
+			<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg_opt.c">ffmpeg_opt.c</a>::open_input_file()
 				// Check if supported file format with 
 				libavformat::<a href="https://ffmpeg.org/doxygen/4.1/group__lavf__decoding.html#ga7d2f532c6653c2419b17956712fdf3da">av_find_input_format</a>()
 				inputContext = libavformat::<a href="https://ffmpeg.org/doxygen/4.1/group__lavf__core.html#gac7a91abf2f59648d995894711f070f62">avformat_alloc_context</a>()
@@ -124,7 +124,7 @@ main()
 				libavformat::<a href="https://ffmpeg.org/doxygen/4.1/group__lavf__decoding.html#ga31d601155e9035d5b0e7efedc894ee49">avformat_open_input</a>()
 				libavformat::<a href="https://ffmpeg.org/doxygen/4.1/group__lavf__decoding.html#gad42172e27cddafb81096939783b157bb">avformat_find_stream_info</a>()
 				// if specified in cmd line options, <a href="https://ffmpeg.org/doxygen/4.1/group__lavf__decoding.html#ga3b40fc8d2fda6992ae6ea2567d71ba30">avformat_seek_file</a>()
-				ffmpeg_opt.c::add_input_streams()/* Add all the streams from the given input file to the global list of input streams. */
+				<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg_opt.c">ffmpeg_opt.c</a>::add_input_streams()/* Add all the streams from the given input file to the global list of input streams. */
 					dec_Context = <a href="https://ffmpeg.org/doxygen/4.1/group__lavc__core.html#gae80afec6f26df6607eaacf39b561c315">avcodec_alloc_context3</a>()
 					<a href="https://ffmpeg.org/doxygen/4.1/group__lavc__core.html#gac7b282f51540ca7a99416a3ba6ee0d16">avcodec_parameters_to_context</a>(dec_Context, cmdLineParameters)
 						// Based on Codec_Type (VID, AUD, SUB, etc, etc)
@@ -134,7 +134,7 @@ main()
 									<a href="https://ffmpeg.org/doxygen/4.1/pixdesc_8c.html#a925ef18d69c24c3be8c53d5a7dc0660e">av_get_pix_fmt</a>()
 									<a href="https://ffmpeg.org/doxygen/4.1/hwcontext_8c.html#a541943ddced791765349645a30adfa4d">av_hwdevice_find_type_by_name</a>()
 							AUD:
-							ffmpeg.c::guess_input_channel_layout()
+							<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::guess_input_channel_layout()
 								<a href="https://ffmpeg.org/doxygen/4.1/group__channel__mask__c.html#gacb84f3e93a583e1f84a5283162a606a2">av_get_default_channel_layout</a>()
 								<a href="https://ffmpeg.org/doxygen/4.1/group__channel__mask__c.html#ga99d0b5bb80534d13a6cc96336cf9076a">av_get_channel_layout_string</a>()
 							DATA, SUB:
@@ -143,29 +143,29 @@ main()
 							// Do Nothing here
 					<a href="https://ffmpeg.org/doxygen/4.1/group__lavc__core.html#ga0c7058f764778615e7978a1821ab3cfe">avcodec_parameters_from_context</a>()
 				<a href="https://ffmpeg.org/doxygen/4.1/group__lavf__misc.html#gae2645941f2dc779c307eb6314fd39f10">av_dump_format</a>()
-		ffmpeg_opt.c::init_complex_filters()
-			ffmpeg_filter.c::init_complex_filtergraph()
+		<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg_opt.c">ffmpeg_opt.c</a>::init_complex_filters()
+			<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg_filter.c">ffmpeg_filter.c</a>::init_complex_filtergraph()
 				<a href="https://ffmpeg.org/doxygen/4.1/group__lavfi.html#ga6c778454b86f845805ffd814b4ce51d4">avfilter_graph_alloc</a>()
 				<a href="https://ffmpeg.org/doxygen/4.1/group__lavfi.html#ga6c3c39e0861653c71a23f90d1397239d">avfilter_graph_parse2</a>()
 					on fail,
 						<a href="https://ffmpeg.org/doxygen/4.1/group__lavfi.html#ga294500a9856260eb1552354fd9d9a6c4">avfilter_inout_free</a>();
 						<a href="https://ffmpeg.org/doxygen/4.1/group__lavfi.html#ga871684449dac05050df238a18d0d493b">avfilter_graph_free</a>();
 				For all Inputs,
-					ffmpeg_filter.c::init_input_filter()
+					<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg_filter.c">ffmpeg_filter.c</a>::init_input_filter()
 						<a href="https://ffmpeg.org/doxygen/4.1/group__lavfi.html#ga2d241a0066fc3724ec3335e25bc3912e">avfilter_pad_get_type</a>()
-							cmdutils.c::check_stream_specifier()
+							<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/cmdutils.c">cmdutils.c</a>::check_stream_specifier()
 								<a href="https://ffmpeg.org/doxygen/4.1/group__lavf__misc.html#ga7e45597834e9ef3098ddb74bc5e1550c">avformat_match_stream_specifier</a>()
 						<a href="https://ffmpeg.org/doxygen/4.1/libavutil_2fifo_8c.html#adae9b18c5eed14fe851c5bb984ce374b">av_fifo_alloc</a>()
 				For all outputs,
 					<a href="https://ffmpeg.org/doxygen/4.1/group__lavu__mem__funcs.html#ga0a8cc057ae9723ce3b9203cb5365971a">av_mallocz</a>()
 					<a href="https://ffmpeg.org/doxygen/4.1/group__lavfi.html#ga2d241a0066fc3724ec3335e25bc3912e">avfilter_pad_get_type</a>()
-					ffmpeg_filter.c::describe_filter_link()
+					<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg_filter.c">ffmpeg_filter.c</a>::describe_filter_link()
 						<a href="https://ffmpeg.org/doxygen/4.1/avio_8h.html#adb5259ad07633518173eaa47fe6575e2">avio_open_dyn_buf</a>()
 						<a href="https://ffmpeg.org/doxygen/4.1/avio_8h.html#a79127cec97b09a308b549253119ff38f">avio_printf</a>()
 						<a href="https://ffmpeg.org/doxygen/4.1/avio_8h.html#a1dddee2b73f4dd6512ac9821cf5adc18">avio_w8</a>()
 						<a href="https://ffmpeg.org/doxygen/4.1/avio_8h.html#a8faed62ce72e7411cbea2356494af8ce">avio_close_dyn_buf</a>()
-		cmdutils.c::open_files()
-			ffmpeg_opt.c::open_output_file()
+		<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/cmdutils.c">cmdutils.c</a>::open_files()
+			<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg_opt.c">ffmpeg_opt.c</a>::open_output_file()
 				// if no Stream maps
 					<a href="https://ffmpeg.org/doxygen/4.1/avformat_8h.html#a6ddf3d982feb45fa5081420ee911f5d5">avformat_alloc_output_context2</a>()	
 					<a href="https://ffmpeg.org/doxygen/4.1/group__lavu__dict.html#gae67f143237b2cb2936c9b147aa6dfde3">av_dict_get</a>()
@@ -173,19 +173,19 @@ main()
 					<a href="https://ffmpeg.org/doxygen/4.1/group__opt__eval__funcs.html#gae245940b870e13b759354d570decf3dc">av_opt_eval_flags</a>()
 				
 					/* create streams for all unlabeled output pads */
-					ffmpeg_opt.c::init_output_filter()
+					<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg_opt.c">ffmpeg_opt.c</a>::init_output_filter()
 						// Based on Type
 						VID:
-							ffmpeg_opt.c::new_video_stream()
-								ffmpeg_opt.c::new_output_stream()
+							<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg_opt.c">ffmpeg_opt.c</a>::new_video_stream()
+								<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg_opt.c">ffmpeg_opt.c</a>::new_output_stream()
 									<a href="https://ffmpeg.org/doxygen/4.1/group__lavf__core.html#gadcb0fd3e507d9b58fe78f61f8ad39827">avformat_new_stream</a>()
 									<a href="https://ffmpeg.org/doxygen/4.1/group__lavu__mem__funcs.html#ga0a8cc057ae9723ce3b9203cb5365971a">av_mallocz</a>()
-									ffmpeg_opt.c::choose_encoder()
+									<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg_opt.c">ffmpeg_opt.c</a>::choose_encoder()
 										<a href="https://ffmpeg.org/doxygen/4.1/group__lavf__encoding.html#gae8a1efab53a348857f209ea51037da4c">av_guess_codec</a>()
 										<a href="https://ffmpeg.org/doxygen/4.1/group__lavc__encoding.html#ga9f820c481615c3a02d0407bac0bdbf25">avcodec_find_encoder</a>()
 									<a href="https://ffmpeg.org/doxygen/4.1/group__lavc__core.html#gae80afec6f26df6607eaacf39b561c315">avcodec_alloc_context3</a>()
 									<a href="https://ffmpeg.org/doxygen/4.1/group__lavc__core.html#ga647755ab2252e93221bb345f3d5e414f">avcodec_parameters_alloc</a>()
-									ffmpeg_opt.c::get_preset_file_2()
+									<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg_opt.c">ffmpeg_opt.c</a>::get_preset_file_2()
 										<a href="https://ffmpeg.org/doxygen/4.1/group__lavu__dict.html#ga8d9c2de72b310cef8e6a28c9cd3acbbe">av_dict_set</a>()
 										<a href="https://ffmpeg.org/doxygen/4.1/tableprint__vlc_8h.html#a079eab092887563f2bef9106c6120089">av_free</a>()
 										<a href="https://ffmpeg.org/doxygen/4.1/avio_8h.html#ae118a1f37f1e48617609ead9910aac15">avio_closep</a>();
@@ -196,7 +196,7 @@ main()
 								<a href="https://ffmpeg.org/doxygen/4.1/parseutils_8c.html#a4dcdb8a2792f2074ca4a1e1f4ddce2bf">av_parse_video_size</a>()
 								<a href="https://ffmpeg.org/doxygen/4.1/pixdesc_8c.html#a925ef18d69c24c3be8c53d5a7dc0660e">av_get_pix_fmt</a>()
 								<a href="https://ffmpeg.org/doxygen/4.1/group__lavu__misc.html#ga553b85a36da32c041738a89aa61f9fbd">av_fopen_utf8</a>() // log file
-								ffmpeg_opt.c::get_ost_filters()
+								<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg_opt.c">ffmpeg_opt.c</a>::get_ost_filters()
 									read_file() //read filter script from file
 										<a href="https://ffmpeg.org/doxygen/4.1/avio_8h.html#a371a670112abc5f3e15bc570da076301">avio_open</a>()
 										<a href="https://ffmpeg.org/doxygen/4.1/avio_8h.html#adb5259ad07633518173eaa47fe6575e2">avio_open_dyn_buf</a>()
@@ -207,8 +207,8 @@ main()
 										<a href="https://ffmpeg.org/doxygen/4.1/avio_8h.html#a8faed62ce72e7411cbea2356494af8ce">avio_close_dyn_buf</a>()
 									or get from CmdLine <a href="https://ffmpeg.org/doxygen/4.1/group__lavu__mem__funcs.html#ga7c352f4cff02184f005323691375fea9">av_strdup</a>()
 						AUD:
-							ffmpeg_opt.c::new_audio_stream()
-								ffmpeg_opt.c::new_output_stream() // Same calls as above incase of VID
+							<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg_opt.c">ffmpeg_opt.c</a>::new_audio_stream()
+								<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg_opt.c">ffmpeg_opt.c</a>::new_output_stream() // Same calls as above incase of VID
 							<a href="https://ffmpeg.org/doxygen/4.1/group__lavu__sampfmts.html#ga655c989b749667468e5e839e26fe63db">av_get_sample_fmt</a>()
 							get_ost_filters()
 							<a href="https://ffmpeg.org/doxygen/4.1/group__lavu__mem__funcs.html#gad8fde0c159ac905909339e082a049cde">av_reallocp_array</a>()
@@ -217,15 +217,15 @@ main()
 					VID:
 						<a href="https://ffmpeg.org/doxygen/4.1/group__lavf__encoding.html#gae8a1efab53a348857f209ea51037da4c">av_guess_codec</a>()
 						<a href="https://ffmpeg.org/doxygen/4.1/group__lavf__misc.html#gaa90b4c72d1bbb298e11096d3a09ec7db">avformat_query_codec</a>()
-						ffmpeg_opt.c::new_video_stream() // Same calls as above
+						<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg_opt.c">ffmpeg_opt.c</a>::new_video_stream() // Same calls as above
 					AUD:
 						<a href="https://ffmpeg.org/doxygen/4.1/group__lavf__encoding.html#gae8a1efab53a348857f209ea51037da4c">av_guess_codec</a>()
-						ffmpeg_opt.c::new_audio_stream() // Same calls as above
+						<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg_opt.c">ffmpeg_opt.c</a>::new_audio_stream() // Same calls as above
 					SUBTITLE:
 						<a href="https://ffmpeg.org/doxygen/4.1/group__lavc__encoding.html#ga9f820c481615c3a02d0407bac0bdbf25">avcodec_find_encoder</a>()
 						<a href="https://ffmpeg.org/doxygen/4.1/group__lavc__misc.html#gac09f8ddc2d4b36c5a85c6befba0d0888">avcodec_descriptor_get</a>()
-						ffmpeg_opt.c::new_subtitle_stream()
-							ffmpeg_opt.c::new_output_stream() // Same Calls as above
+						<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg_opt.c">ffmpeg_opt.c</a>::new_subtitle_stream()
+							<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg_opt.c">ffmpeg_opt.c</a>::new_output_stream() // Same Calls as above
 					DATA:
 						<a href="https://ffmpeg.org/doxygen/4.1/group__lavf__encoding.html#gae8a1efab53a348857f209ea51037da4c">av_guess_codec</a>()
 				else
@@ -243,13 +243,13 @@ main()
 				<a href="https://ffmpeg.org/doxygen/4.1/avio_8h.html#ade8a63980569494c99593ebf0d1e891b">avio_open2</a>()
 				<a href="https://ffmpeg.org/doxygen/4.1/tableprint__vlc_8h.html#ae97db1f58b6b1515ed57a83bea3dd572">av_malloc</a>()
 				<a href="https://ffmpeg.org/doxygen/4.1/avio_8h.html#abb4e58439be0bff0dc2e2974ee5fb6a3">avio_read</a>()
-				ffmpeg_opt.c::new_attachment_stream()
+				<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg_opt.c">ffmpeg_opt.c</a>::new_attachment_stream()
 				<a href="https://ffmpeg.org/doxygen/4.1/group__lavu__dict.html#ga8d9c2de72b310cef8e6a28c9cd3acbbe">av_dict_set</a>()
 				<a href="https://ffmpeg.org/doxygen/4.1/avio_8h.html#ae118a1f37f1e48617609ead9910aac15">avio_closep</a>()
 			// Set options
 
 			/* set the decoding_needed flags and create simple filtergraphs */
-			ffmpeg_opt.c::init_simple_filtergraph()
+			<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg_opt.c">ffmpeg_opt.c</a>::init_simple_filtergraph()
 			// set the filter output constraints
 
 			<a href="https://ffmpeg.org/doxygen/4.1/avio_8h.html#ade8a63980569494c99593ebf0d1e891b">avio_open2</a>()
@@ -263,25 +263,25 @@ main()
 		on fail, uninit_parse_context()
 
 	/* The following code is the main loop of the file converter */
-	ffmpeg.c::transcode()
-		ffmpeg.c::transcode_init()
+	<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::transcode()
+		<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::transcode_init()
 			//Link FilterGraphs and OutputFilter
 
 			/* init framerate emulation */
 			InputFile.InputStreams = <a href="https://ffmpeg.org/doxygen/4.1/time_8c.html#adf0e36df54426fa167e3cc5a3406f3b7">av_gettime_relative</a>()
 
 			/* init input streams */
-			ffmpeg.c::init_input_stream()
+			<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::init_input_stream()
 				/* Set Dec_Context Options */
 				<a href="https://ffmpeg.org/doxygen/4.1/group__opt__set__funcs.html#ga3adf7185c21cc080890a5ec02c2e56b2">av_opt_set_int</a>()
 				<a href="https://ffmpeg.org/doxygen/4.1/group__lavu__dict.html#ga8d9c2de72b310cef8e6a28c9cd3acbbe">av_dict_set</a>()
-				ffmpeg_hw.c::hw_device_setup_for_decode()
-					ffmpeg_hw.c::hw_device_get_by_name()
-					ffmpeg_hw.c::hw_device_init_from_type()
-						ffmpeg_hw.c::hw_device_default_name()
+				<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg_hw.c">ffmpeg_hw.c</a>::hw_device_setup_for_decode()
+					<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg_hw.c">ffmpeg_hw.c</a>::hw_device_get_by_name()
+					<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg_hw.c">ffmpeg_hw.c</a>::hw_device_init_from_type()
+						<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg_hw.c">ffmpeg_hw.c</a>::hw_device_default_name()
 							<a href="https://ffmpeg.org/doxygen/4.1/hwcontext_8c.html#afb2b99a15f3fdde25a2fd19353ac5a67">av_hwdevice_get_type_name</a>()							
 						<a href="https://ffmpeg.org/doxygen/4.1/hwcontext_8c.html#a21fbd088225e4e25c4d9a01b3f5e8c51">av_hwdevice_ctx_create</a>()
-						ffmpeg_hw.c::hw_device_add()
+						<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg_hw.c">ffmpeg_hw.c</a>::hw_device_add()
 							<a href="https://ffmpeg.org/doxygen/4.1/group__lavu__mem__funcs.html#gad8fde0c159ac905909339e082a049cde">av_reallocp_array</a>(hw_devices)
 							<a href="https://ffmpeg.org/doxygen/4.1/group__lavu__mem__funcs.html#ga0a8cc057ae9723ce3b9203cb5365971a">av_mallocz</a>()
 						On fail, <a href="https://ffmpeg.org/doxygen/4.1/tableprint__vlc_8h.html#adba82e1bcd02de510a858fcbedf79ef1">av_freep</a>() & av_buffer_unref()
@@ -300,10 +300,10 @@ main()
 			 *   to be configured with the correct audio frame size, which is only
 			 *   known after the encoder is initialized.
 			 */
-			 ffmpeg.c::init_output_stream_wrapper()
-				ffmpeg.c::init_output_stream()
+			 <a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::init_output_stream_wrapper()
+				<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::init_output_stream()
 					/* If encoding_needed */
-						ffmpeg.c::init_output_stream_encode()
+						<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::init_output_stream_encode()
 							// Set Options
 							Based on Codec Type,
 							AUD:
@@ -313,9 +313,9 @@ main()
 								<a href="https://ffmpeg.org/doxygen/4.1/group__lavfi__buffersink__accessors.html#ga87e21bf198fd932c30cc3cdc6b16bff1">av_buffersink_get_channel_layout</a>()
 								<a href="https://ffmpeg.org/doxygen/4.1/group__lavfi__buffersink__accessors.html#gace78881c41bf449527826b95d21279a2">av_buffersink_get_channels</a>()
 
-								ffmpeg.c::init_encoder_time_base() // Based on SampleRate
+								<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::init_encoder_time_base() // Based on SampleRate
 							VID:
-								ffmpeg.c::init_encoder_time_base() // Based on frameRate
+								<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::init_encoder_time_base() // Based on frameRate
 								<a href="https://ffmpeg.org/doxygen/4.1/group__lavfi__buffersink__accessors.html#gabc82f65ec7f4fa47c5216260639258a1">av_buffersink_get_time_base</a>()
 								<a href="https://ffmpeg.org/doxygen/4.1/group__lavfi__buffersink__accessors.html#gac8c86515d2ef56090395dfd74854c835">av_buffersink_get_w</a>()
 								<a href="https://ffmpeg.org/doxygen/4.1/group__lavfi__buffersink__accessors.html#ga955ecf3680e71e10429d7500343be25c">av_buffersink_get_h</a>()
@@ -327,7 +327,7 @@ main()
 								// Set other options on Enc_Context
 							SUB: // Set options
 							DATA: // Set Options
-						ffmpeg_hw.c::hw_device_setup_for_encode()
+						<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg_hw.c">ffmpeg_hw.c</a>::hw_device_setup_for_encode()
 							<a href="https://ffmpeg.org/doxygen/4.1/group__lavfi__buffersink__accessors.html#gaa1415790bfe3dacb5af1c60e9eda3714">av_buffersink_get_hw_frames_ctx</a>()
 							<a href="https://ffmpeg.org/doxygen/4.1/group__lavc__core.html#ga4f80582a2ea9c0e141de5d6f6152008f">avcodec_get_hw_config</a>()
 							// Set Enc_Context Options
@@ -342,7 +342,7 @@ main()
 							<a href="https://ffmpeg.org/doxygen/4.1/group__lavf__core.html#gae324697cedd36e7b47a1e142dc24b805">av_stream_new_side_data</a>()
 							<a href="https://ffmpeg.org/doxygen/4.1/group__lavu__video__display.html#ga5964303bfe085ad33683bc2454768d4a">av_display_rotation_set</a>()
 					/* else if StreamCopy */
-						ffmpeg.c::init_output_stream_streamcopy()
+						<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::init_output_stream_streamcopy()
 							<a href="https://ffmpeg.org/doxygen/4.1/group__lavc__core.html#gac7b282f51540ca7a99416a3ba6ee0d16">avcodec_parameters_to_context</a>()
 							<a href="https://ffmpeg.org/doxygen/4.1/group__lavc__core.html#ga0c7058f764778615e7978a1821ab3cfe">avcodec_parameters_from_context</a>()
 							<a href="https://ffmpeg.org/doxygen/4.1/group__lavc__core.html#ga6d02e640ccc12c783841ce51d09b9fa7">avcodec_parameters_copy</a>()
@@ -361,12 +361,12 @@ main()
 					/* initialize bitstream filters for the output stream
 					 * needs to be done here, because the codec id for streamcopy is not
 					 * known until now */
-					ffmpeg.c::init_output_bsfs()
+					<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::init_output_bsfs()
 						<a href="https://ffmpeg.org/doxygen/4.1/group__lavc__core.html#ga6d02e640ccc12c783841ce51d09b9fa7">avcodec_parameters_copy</a>()
 						<a href="https://ffmpeg.org/doxygen/4.1/group__lavc__misc.html#ga242529d54013acf87e94273d298a5ff2">av_bsf_init</a>()
 
 					/* open the muxer when all the streams are initialized */
-					ffmpeg.c::check_init_output_file()
+					<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::check_init_output_file()
 						OuputFile->interrupt_callback = int_cb;
 						<a href="https://ffmpeg.org/doxygen/4.1/group__lavf__encoding.html#ga18b7b10bb5b94c4842de18166bc677cb">avformat_write_header</a>()
 
@@ -374,7 +374,7 @@ main()
 						/* try to improve muxing time_base (only possible if nothing has been written yet) */
 						<a href="https://ffmpeg.org/doxygen/4.1/libavutil_2fifo_8c.html#a81f4cea70d96846df7111daccc5ecce2">av_fifo_size</a>()
 						<a href="https://ffmpeg.org/doxygen/4.1/libavutil_2fifo_8c.html#ab708d2f19b7a9592caa278256787adb6">av_fifo_generic_read</a>()
-						ffmpeg.c::write_packet()
+						<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::write_packet()
 							/*
 							 * Audio encoders may split the packets --  #frames in != #packets out.
 							 * But there is no reordering, so we can limit the number of output packets
@@ -410,7 +410,7 @@ main()
 		/// end transcode_init()
 
 		/* Return 1 if there remain streams where more output is wanted, 0 otherwise. */
-		ffmpeg.c::need_output()
+		<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::need_output()
 			close_output_stream()
 				<a href="https://ffmpeg.org/doxygen/4.1/group__lavu__math.html#gaf02994a8bbeaa91d4757df179cbe567f">av_rescale_q</a>()
 
@@ -419,22 +419,22 @@ main()
 		 *
 		 * @return  0 for success, <0 for error
 		 */
-		ffmpeg.c::transcode_step()
+		<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::transcode_step()
 			/**
 			 * Select the output stream to process.
 			 *
 			 * @return  selected output stream, or NULL if none available
 			 */
-			ffmpeg.c::choose_output()
+			<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::choose_output()
 				<a href="https://ffmpeg.org/doxygen/4.1/group__lavu__math.html#gaf02994a8bbeaa91d4757df179cbe567f">av_rescale_q</a>()
 
-			if ffmpeg.c::got_eagain()
-			ffmpeg.c::reset_eagain()
+			if <a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::got_eagain()
+			<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::reset_eagain()
 			// return 0 // Stop FFMPEG
 
-			ffmpeg.c::ifilter_has_all_input_formats()
-			ffmpeg_filter.c::configure_filtergraph()
-				ffmpeg_filter.c::cleanup_filtergraph()
+			<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::ifilter_has_all_input_formats()
+			<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg_filter.c">ffmpeg_filter.c</a>::configure_filtergraph()
+				<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg_filter.c">ffmpeg_filter.c</a>::cleanup_filtergraph()
 					// Null Output and Input filters
 					<a href="https://ffmpeg.org/doxygen/4.1/group__lavfi.html#ga871684449dac05050df238a18d0d493b">avfilter_graph_free</a>()
 
@@ -445,7 +445,7 @@ main()
 
 				<a href="https://ffmpeg.org/doxygen/4.1/group__lavfi.html#ga6c3c39e0861653c71a23f90d1397239d">avfilter_graph_parse2</a>()
 
-				ffmpeg_hw.c::hw_device_setup_for_filter()
+				<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg_hw.c">ffmpeg_hw.c</a>::hw_device_setup_for_filter()
 					<a href="https://ffmpeg.org/doxygen/4.1/group__lavu__buffer.html#gaa40ce7d3ede946a89d03323bbd7268c1">av_buffer_ref</a>()
 
 				<a href="https://ffmpeg.org/doxygen/4.1/group__lavfi.html#ga294500a9856260eb1552354fd9d9a6c4">avfilter_inout_free</a>()
@@ -499,7 +499,7 @@ main()
 			 * of the peeked AVFrame as-is), we could get rid of this additional
 			 * early encoder initialization.
 			 */
-			 ffmpeg.c::init_output_stream_wrapper() // Same calls as above
+			 <a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::init_output_stream_wrapper() // Same calls as above
 
 			 /**
 			 * Perform a step of transcoding for the specified filter graph.
@@ -508,7 +508,7 @@ main()
 			 * @param[out] best_ist  input stream where a frame would allow to continue
 			 * @return  0 for success, <0 for error
 			 */
-			 ffmpeg.c::transcode_from_filter()
+			 <a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::transcode_from_filter()
 				<a href="https://ffmpeg.org/doxygen/4.1/group__lavfi.html#gab20535e0685fb5f9b4f02e436412c3f0">avfilter_graph_request_oldest</a>()
 				/**
 				 * Get and encode new output from any of the filtergraphs, without causing
@@ -516,16 +516,16 @@ main()
 				 *
 				 * @return  0 for success, <0 for severe errors
 				 */
-				ffmpeg.c::reap_filters()
+				<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::reap_filters()
 					AUD:
-						ffmpeg.c::init_output_stream_wrapper() // Same Calls as before
+						<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::init_output_stream_wrapper() // Same Calls as before
 
 					<a href="https://ffmpeg.org/doxygen/4.1/group__lavfi__buffersink.html#ga71ae9c529c8da51681e12faa37d1a395">av_buffersink_get_frame_flags</a>()
 					
 					VID:
-						ffmpeg.c::do_video_out()
-							ffmpeg.c::init_output_stream_wrapper() // Same Calls as before
-							ffmpeg.c::adjust_frame_pts_to_encoder_tb()
+						<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::do_video_out()
+							<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::init_output_stream_wrapper() // Same Calls as before
+							<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::adjust_frame_pts_to_encoder_tb()
 								<a href="https://ffmpeg.org/doxygen/4.1/group__lavu__math.html#gaf02994a8bbeaa91d4757df179cbe567f">av_rescale_q</a>(pts,etc...)
 
 							<a href="https://ffmpeg.org/doxygen/4.1/group__lavfi__buffersink__accessors.html#ga55614fd28de2fa05b04f427390061d5b">av_buffersink_get_frame_rate</a>()
@@ -549,7 +549,7 @@ main()
 							 * therefore flush any delayed packets to the output.  A blank packet
 							 * must be supplied in this case.
 							 */
-							ffmpeg.c::output_packet()
+							<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::output_packet()
 								/* apply the output bitstream filters */
 								<a href="https://ffmpeg.org/doxygen/4.1/group__lavc__misc.html#gaada9ea8f08d3dcf23c14564dbc88992c">av_bsf_send_packet</a>()
 								<a href="https://ffmpeg.org/doxygen/4.1/group__lavc__misc.html#ga7fffb6c87b91250956e7a2367af56b38">av_bsf_receive_packet</a>()
@@ -557,11 +557,11 @@ main()
 
 							<a href="https://ffmpeg.org/doxygen/4.1/group__lavu__frame.html#ga0a2b687f9c1c5ed0089b01fd61227108">av_frame_unref</a>()
 					AUD:
-						ffmpeg.c::do_audio_out()
+						<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::do_audio_out()
 							<a href="https://ffmpeg.org/doxygen/4.1/group__lavc__packet.html#gac9cb9756175b96e7441575803757fb73">av_init_packet</a>()
 
-							ffmpeg.c::adjust_frame_pts_to_encoder_tb() // Same calls as above
-							ffmpeg.c::check_recording_time()
+							<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::adjust_frame_pts_to_encoder_tb() // Same calls as above
+							<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::check_recording_time()
 								close_output_stream() // Same calls as above
 
 							// Update pts, opts, frames, etc, etc..
@@ -580,56 +580,56 @@ main()
 			 *   this function should be called again
 			 * - AVERROR_EOF -- this function should not be called again
 			 */
-			ffmpeg.c::process_input()
-				ffmpeg.c::get_input_packet()
+			<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::process_input()
+				<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::get_input_packet()
 					<a href="https://ffmpeg.org/doxygen/4.1/group__lavf__decoding.html#ga4fdb3084415a82e3810de6ee60e46a61">av_read_frame</a>()
 
 				/* pkt = NULL means EOF (needed to flush decoder buffers) */
-				ffmpeg.c::process_input_packet()
+				<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::process_input_packet()
 
 					<a href="https://ffmpeg.org/doxygen/4.1/group__lavc__packet.html#gac9cb9756175b96e7441575803757fb73">av_init_packet</a>()
 					<a href="https://ffmpeg.org/doxygen/4.1/group__lavu__math.html#gaf02994a8bbeaa91d4757df179cbe567f">av_rescale_q</a>(dts, ...)
 
 					AUD:
-						ffmpeg.c::decode_audio()
+						<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::decode_audio()
 							/* This does not quite work like avcodec_decode_audio4/avcodec_decode_video2.
 							 * There is the following difference: if you got a frame, you must call
 							 * it again with pkt=NULL. pkt==NULL is treated differently from pkt->size==0
 							 *(pkt==NULL means get more output, pkt->size==0 is a flush/drain packet)
 							 */
-							ffmpeg.c::decode()
+							<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::decode()
 								<a href="https://ffmpeg.org/doxygen/4.1/group__lavc__decoding.html#ga58bc4bf1e0ac59e27362597e467efff3">avcodec_send_packet</a>()
 								<a href="https://ffmpeg.org/doxygen/4.1/group__lavc__decoding.html#ga11e6542c4e66d3028668788a1a74217c">avcodec_receive_frame</a>()
-							ffmpeg.c::check_decode_result()
+							<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::check_decode_result()
 								exit_program(1)
 
 							// Update timeBases, pts, dts, sample rates etc...
-							ffmpeg.c::send_frame_to_filters()
+							<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::send_frame_to_filters()
 								<a href="https://ffmpeg.org/doxygen/4.1/group__lavu__frame.html#ga88b0ecbc4eb3453eef3fbefa3bddeb7c">av_frame_ref</a>()
-								ffmpeg.c::ifilter_send_frame()
-									ffmpeg_filter.c::ifilter_parameters_from_frame()
+								<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::ifilter_send_frame()
+									<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg_filter.c">ffmpeg_filter.c</a>::ifilter_parameters_from_frame()
 
 									/* (re)init the graph if possible, otherwise buffer the frame and return */
 									<a href="https://ffmpeg.org/doxygen/4.1/group__lavu__frame.html#ga46d6d32f6482a3e9c19203db5877105b">av_frame_clone</a>()
 									<a href="https://ffmpeg.org/doxygen/4.1/libavutil_2fifo_8c.html#aeaf7aa802f3b18fef86bb72445eff5d8">av_fifo_realloc2</a>()
 									<a href="https://ffmpeg.org/doxygen/4.1/libavutil_2fifo_8c.html#ae95c15dcdd266b4005f8919e4f571180">av_fifo_generic_write</a>()
 
-									ffmpeg.c::reap_filters() // calls same as above
+									<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::reap_filters() // calls same as above
 
-									ffmpeg_filters.c::configure_filtergraph() // CSAA
+									<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg_filters.c">ffmpeg_filters.c</a>::configure_filtergraph() // CSAA
 
 									<a href="https://ffmpeg.org/doxygen/4.1/group__lavfi__buffersrc.html#ga73ed90c3c3407f36e54d65f91faaaed9">av_buffersrc_add_frame_flags</a>(AV_BUFFERSRC_FLAG_PUSH)
 							<a href="https://ffmpeg.org/doxygen/4.1/group__lavu__frame.html#ga0a2b687f9c1c5ed0089b01fd61227108">av_frame_unref</a>()
 					VID:
-						ffmpeg.c::decode_video()
+						<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::decode_video()
 							<a href="https://ffmpeg.org/doxygen/4.1/group__lavu__frame.html#gac700017c5270c79c1e1befdeeb008b2f">av_frame_alloc</a>()
 							<a href="https://ffmpeg.org/doxygen/4.1/group__lavu__math.html#gaf02994a8bbeaa91d4757df179cbe567f">av_rescale_q</a>(Timebase)
 
 							<a href="https://ffmpeg.org/doxygen/4.1/group__lavu__mem__funcs.html#gaadc230ece36ef112710b262a6601a16b">av_realloc_array</a>()
-							ffmpeg.c::decode() // CSAA
-							ffmpeg.c::check_decode_result() // CSAA
+							<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::decode() // CSAA
+							<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::check_decode_result() // CSAA
 
-							ffmpeg_hw.c::hwaccel_retrieve_data()
+							<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg_hw.c">ffmpeg_hw.c</a>::hwaccel_retrieve_data()
 								<a href="https://ffmpeg.org/doxygen/4.1/group__lavu__frame.html#gac700017c5270c79c1e1befdeeb008b2f">av_frame_alloc</a>()
 								<a href="https://ffmpeg.org/doxygen/4.1/hwcontext_8c.html#abf1b1664b8239d953ae2cac8b643815a">av_hwframe_transfer_data</a>()
 								<a href="https://ffmpeg.org/doxygen/4.1/group__lavu__frame.html#gab9b275b114ace0db95c5796bc71f3012">av_frame_copy_props</a>()
@@ -644,73 +644,73 @@ main()
 							// Set pts, dts, timestams, etc..
 							<a href="https://ffmpeg.org/doxygen/4.1/group__lavu__math.html#gaf02994a8bbeaa91d4757df179cbe567f">av_rescale_q</a>(pts)
 
-							ffmpeg.c::send_frame_to_filters() // CSAA
+							<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::send_frame_to_filters() // CSAA
 
 							On fail,
 								<a href="https://ffmpeg.org/doxygen/4.1/group__lavu__frame.html#ga0a2b687f9c1c5ed0089b01fd61227108">av_frame_unref</a>()
 						// Set framerates, next dts, etc etc...
 					SUBTITLES:
-						ffmpeg.c::transcode_subtitles()
+						<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::transcode_subtitles()
 							<a href="https://ffmpeg.org/doxygen/4.1/group__lavc__decoding.html#ga47db1b7f294b9f92684401b9c66a7c4b">avcodec_decode_subtitle2</a>()
-							ffmpeg.c::check_decode_result()
+							<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::check_decode_result()
 
 							on Fail,
-								ffmpeg.c::sub2video_flush()
-									ffmpeg.c::sub2video_update()
-										ffmpeg.c::sub2video_copy_rect()
-										ffmpeg.c::sub2video_push_ref()
+								<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::sub2video_flush()
+									<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::sub2video_update()
+										<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::sub2video_copy_rect()
+										<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::sub2video_push_ref()
 									<a href="https://ffmpeg.org/doxygen/4.1/group__lavfi__buffersrc.html#ga8fc71cb48c1ad1aa78b48f87daa4cf19">av_buffersrc_add_frame</a>(NULL)
 
 							<a href="https://ffmpeg.org/doxygen/4.1/group__lavu__math.html#ga3daf97178dd1b08b5e916be381cd33e4">av_rescale</a>(pts)
-							ffmpeg.c::sub2video_update()
+							<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::sub2video_update()
 							<a href="https://ffmpeg.org/doxygen/4.1/libavutil_2fifo_8c.html#adae9b18c5eed14fe851c5bb984ce374b">av_fifo_alloc</a>()
 							<a href="https://ffmpeg.org/doxygen/4.1/libavutil_2fifo_8c.html#aeaf7aa802f3b18fef86bb72445eff5d8">av_fifo_realloc2</a>()
 							<a href="https://ffmpeg.org/doxygen/4.1/libavutil_2fifo_8c.html#ae95c15dcdd266b4005f8919e4f571180">av_fifo_generic_write</a>()
 
-							ffmpeg.c::do_subtitle_out()
+							<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::do_subtitle_out()
 								<a href="https://ffmpeg.org/doxygen/4.1/tableprint__vlc_8h.html#ae97db1f58b6b1515ed57a83bea3dd572">av_malloc</a>()
 								<a href="https://ffmpeg.org/doxygen/4.1/group__lavu__math.html#gaf02994a8bbeaa91d4757df179cbe567f">av_rescale_q</a>(pts)
 								<a href="https://ffmpeg.org/doxygen/4.1/group__lavc__encoding.html#ga37be256d85d78f665df27ad6c8f1d65b">avcodec_encode_subtitle</a>()
 								<a href="https://ffmpeg.org/doxygen/4.1/group__lavc__packet.html#gac9cb9756175b96e7441575803757fb73">av_init_packet</a>()
-								ffmpeg.c::output_packet() // CSAA
+								<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::output_packet() // CSAA
 
 					/* after flushing, send an EOF on all the filter inputs attached to the stream */
 					/* except when looping we need to flush but not to send an EOF */
-					ffmpeg.c::send_filter_eof()
-						ffmpeg.c::ifilter_send_eof()
+					<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::send_filter_eof()
+						<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::ifilter_send_eof()
 							<a href="https://ffmpeg.org/doxygen/4.1/group__lavfi__buffersrc.html#ga828fc86955dc0530ea53c123862e3da6">av_buffersrc_close</a>()
-							ffmpeg.c::ifilter_parameters_from_codecpar()
+							<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::ifilter_parameters_from_codecpar()
 
 					/* handle stream copy */
 					// Set pts, dts, etc..
-					ffmpeg.c::do_streamcopy()
+					<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::do_streamcopy()
 						<a href="https://ffmpeg.org/doxygen/4.1/group__lavc__packet.html#gac9cb9756175b96e7441575803757fb73">av_init_packet</a>()
 						output_packet(NULL) // flush
 
 						if past recoding time, cli, 
-							ffmpeg.c::close_output_stream() // CSAA
+							<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::close_output_stream() // CSAA
 
 						// force the input stream PTS and other ptd, dts, settings
 						AUD:
 							<a href="https://ffmpeg.org/doxygen/4.1/group__lavc__misc.html#ga3266a8c3df0790c62259f91afcde45a9">av_get_audio_frame_duration</a>()
 							<a href="https://ffmpeg.org/doxygen/4.1/group__lavu__math.html#ga29b7c3d60d68ef678ee1f4adc61a25dc">av_rescale_delta</a>()
 
-						ffmpeg.c::output_packet() // CSAA
+						<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::output_packet() // CSAA
 
 				<a href="https://ffmpeg.org/doxygen/4.1/group__lavc__misc.html#gaf60b0e076f822abcb2700eb601d352a6">avcodec_flush_buffers</a>()
 
-				ffmpeg.c::seek_to_start()
+				<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::seek_to_start()
 					<a href="https://ffmpeg.org/doxygen/4.1/group__lavf__decoding.html#ga3b40fc8d2fda6992ae6ea2567d71ba30">avformat_seek_file</a>()
 					<a href="https://ffmpeg.org/doxygen/4.1/group__lavu__math.html#gaf02994a8bbeaa91d4757df179cbe567f">av_rescale_q</a>()
 					// Set samples, framerates, duration, etc...
 
-				ffmpeg.c::get_input_packet() // CSAA
-				ffmpeg.c::process_input_packet() // CSAA
+				<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::get_input_packet() // CSAA
+				<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::process_input_packet() // CSAA
 
 				/* mark all outputs that don't go through lavfi as finished */
-				ffmpeg.c::finish_output_stream()
+				<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::finish_output_stream()
 				
-				ffmpeg.c::reset_eagain()
+				<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::reset_eagain()
 
 				// WRAP_CORRECTION Correcting starttime based on the enabled streams
 				// Settings related to pts, dts, startime, etc, etc..
@@ -722,27 +722,27 @@ main()
 
 				// Dispositon correction.. etc...Settings related to pts, dts, startime, etc, etc..
 
-				ffmpeg.c::sub2video_heartbeat()
+				<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::sub2video_heartbeat()
 					/* When a frame is read from a file, examine all sub2video streams in
 					   the same file and send the sub2video frame again. Otherwise, decoded
 					   video frames could be accumulating in the filter graph while a filter
 					   (possibly overlay) is desperately waiting for a subtitle frame. */
 					<a href="https://ffmpeg.org/doxygen/4.1/group__lavu__math.html#gaf02994a8bbeaa91d4757df179cbe567f">av_rescale_q</a>()
-					ffmpeg.c::sub2video_update() // CSAA
+					<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::sub2video_update() // CSAA
 					<a href="https://ffmpeg.org/doxygen/4.1/group__lavfi__buffersrc.html#ga996e96007a0fda870549ac3c4e1e0967">av_buffersrc_get_nb_failed_requests</a>()
-					ffmpeg.c::sub2video_push_ref() // CSAA
+					<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::sub2video_push_ref() // CSAA
 
-				ffmpeg.c::process_input_packet() // CSAA
+				<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::process_input_packet() // CSAA
 
 				if discard packet, <a href="https://ffmpeg.org/doxygen/4.1/group__lavc__packet.html#ga63d5a489b419bd5d45cfd09091cbcbc2">av_packet_unref</a>()
 		// End of trasncode_step()
 
 		/* at the end of stream, we must flush the decoder buffers */
-		ffmpeg.c::process_input_packet(NULL) // CSAA
+		<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::process_input_packet(NULL) // CSAA
 
-		ffmpeg.c::flush_encoders()
-			ffmpeg.c::finish_output_stream() // CSAA
-			ffmpeg.c::init_output_stream_wrapper(NULL) // CSAA
+		<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::flush_encoders()
+			<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::finish_output_stream() // CSAA
+			<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg.c">ffmpeg.c</a>::init_output_stream_wrapper(NULL) // CSAA
 
 			<a href="https://ffmpeg.org/doxygen/4.1/group__lavc__packet.html#gac9cb9756175b96e7441575803757fb73">av_init_packet</a>(NULL)
 			<a href="https://ffmpeg.org/doxygen/4.1/group__lavc__decoding.html#ga5b8eff59cf259747cf0b31563e38ded6">avcodec_receive_packet</a>()
@@ -751,7 +751,7 @@ main()
 			output_packet(NULL)
 			<a href="https://ffmpeg.org/doxygen/4.1/group__lavc__packet.html#ga63d5a489b419bd5d45cfd09091cbcbc2">av_packet_unref</a>()
 
-		ffmpeg_hw.c::hw_device_free_all()
+		<a href="https://github.com/ShootingKing-AM/ffmpeg-psedocode-tutorial/blob/master/ffmpeg-cli/ffmpeg_hw.c">ffmpeg_hw.c</a>::hw_device_free_all()
 			<a href="https://ffmpeg.org/doxygen/4.1/tableprint__vlc_8h.html#adba82e1bcd02de510a858fcbedf79ef1">av_freep</a>()
 			<a href="https://ffmpeg.org/doxygen/4.1/group__lavu__buffer.html#ga135e9e929b5033bb8f68322497b2effc">av_buffer_unref</a>()
 
@@ -759,4 +759,4 @@ main()
 	/// End of transcode()
 /// End of main()
 
-</pre>
+re>
