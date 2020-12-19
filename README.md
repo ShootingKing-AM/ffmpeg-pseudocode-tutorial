@@ -1,7 +1,7 @@
-# ffmpeg-psedocode-tutorial
-A brief understanding of ffmpeg cli through lpseudocode
+# FFmpeg/libav Pseudocode Tutorial
+A brief understanding of ffmpeg cli through pseudocode
 
-Code from Dec' 2020 - Tree - https://github.com/FFmpeg/FFmpeg/tree/001bc594d82f3df67a6e96c6ea022f4e39002385
+FFmpeg-Cli from github/FFmpeg, Dec'2020 - [Tree](https://github.com/FFmpeg/FFmpeg/tree/001bc594d82f3df67a6e96c6ea022f4e39002385)
 
 ```swift
 main()
