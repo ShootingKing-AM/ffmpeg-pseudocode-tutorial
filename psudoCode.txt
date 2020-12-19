@@ -1,9 +1,3 @@
-# ffmpeg-psedocode-tutorial
-A brief understanding of ffmpeg cli through lpseudocode
-
-Code from Dec' 2020 - Tree - https://github.com/FFmpeg/FFmpeg/tree/001bc594d82f3df67a6e96c6ea022f4e39002385
-
-```swift
 main()
 
 	cmdutils.c::init_dynload()
@@ -724,4 +718,4 @@ main()
 		// Free all output streams, dicts
 	/// End of transcode()
 /// End of main()
-```
+// Javascript, Rust, swift best
