@@ -1,10 +1,46 @@
 # FFmpeg/libav Pseudocode Tutorial
-A brief understanding of ffmpeg cli through pseudocode
+A broad workflow understanding of ffmpeg-cli through loose pseudocode.
 
-FFmpeg-Cli from github/FFmpeg, Dec'2020 - [Tree](https://github.com/FFmpeg/FFmpeg/tree/001bc594d82f3df67a6e96c6ea022f4e39002385)
+FFmpeg-cli source from [github/FFmpeg](https://github.com/FFmpeg/FFmpeg#ffmpeg-readme), Dec'2020 - [Tree](https://github.com/FFmpeg/FFmpeg/tree/001bc594d82f3df67a6e96c6ea022f4e39002385)
+
+## Rationale
+[FFmpeg](http://ffmpeg.org/about.html) is a collection of libraries and includes a command-line-interface(*cli*) tool to **manipulate, convert and stream multimedia** content.
+
+The goal of understanding ffmpeg-cli is to be able to to integrate FFmpeg into our projects without having to call the ffmpeg-cli in background to do multimedia operation. This is important because,
+1. Starting up an external executable tends to be blocked by antivirus software and can cause issues with users.
+2. Optimize your project specific libav usage and skip uncessary code from ffmpeg-cli
+
+Also, ffmpeg official documentation being vauge at best, the only option for developers looking to implement ffmpeg's libraries (`libav`) functionality into their code is to read the command line interface's source code.
+
+Reading ffmpeg-cli's source code is very hard, because its not meant to be used as a study material for understanding how to use `libav` but as a optimized multimedia tool. Hence, i tried to straighten out its source code into simple pseudocode function highlighting **when and where** to call important(almost all) libav's funtions, for an overall broader picture of ffmpeg workflow. For information regarding **how** to call a `libav` function call, one can refer to the [doxygen documentaion](https://ffmpeg.org/doxygen/4.1/index.html) and [ffmpeg-cli-soruce files](https://github.com/FFmpeg/FFmpeg/tree/master/fftools).
+
+Lack of tutorials in this regard compelled me to open-source this document.
+
+## How to read thorugh Pseudocode 
+1. This pseudocode, assues you have basic multimedia knowledge and ffmpeg internal structure. (if not head over to this [picutre tutorial](https://github.com/leandromoreira/ffmpeg-libav-tutorial/blob/master/README.md)).
+2. This pseudocode also assumes you have basic understanding of C(++) functions.
+3. The `syntactical rules` of the following pseudocode are,
+
+	**a.** There are `two sets` of functions, <br/><br/>
+		i. `Standard libaray calls`, those are available in *libav* headers(, .libs, .dlls), and<br/>
+		ii. `ffmpeg-cli specific functions`(non-std functions), these should be understood and should be implemented in your specifc project.<br/>    
+		`Non-std` function have been named as `<file>::<functionName>()` in pseudocode, so that you can refer to those specifc source files to get the exact syntax.<br/>
+		`Std` function just have `<functionName>()` and usually start with `av*`
+    
+	**b.** Each <kbd>tab</kbd> indicates that the upcoming function call(s) is/are inside the above function call. For example,
+	```swift
+	foo()
+	    bar()
+	```
+	This means `bar()` function call is inside `foo()` function and `bar()` is being called by `foo()`.
+  
+	**c.** `//` indicates there is code which does *something* in place of this comment, which does this function.<br/>
+		`/**/` Indicates a comment which explains the following code.<br/>
+		`///` Indicates just a comment.
+### ffmpeg-cli Pseudocode
 
 ```swift
-main()
+ffmpeg.c::main()
 	cmdutils.c::init_dynload()
 		SetDllDirectory("")
 
