@@ -1,5 +1,4 @@
 main()
-
 	cmdutils.c::init_dynload()
 		SetDllDirectory("")
 
@@ -123,7 +122,7 @@ main()
 						avio_close_dyn_buf()
 		cmdutils.c::open_files()
 			ffmpeg_opt.c::open_output_file()
-				if no Stream maps
+				// if no Stream maps
 					avformat_alloc_output_context2()	
 					av_dict_get()
 					av_opt_find()
@@ -357,7 +356,6 @@ main()
 
 							av_interleaved_write_frame()
 							av_packet_unref()
-
 			// discard unused programs
 
 			/* write headers for files with no streams */
@@ -365,7 +363,7 @@ main()
 
 			// dump the stream mapping
 
-		// end transcode_init()
+		/// end transcode_init()
 
 		/* Return 1 if there remain streams where more output is wanted, 0 otherwise. */
 		ffmpeg.c::need_output()
@@ -410,8 +408,8 @@ main()
 				avfilter_graph_set_auto_convert()
 				avfilter_graph_config()
 
-				/* limit the lists of allowed formats to the ones selected, to
-			     * make sure they stay the same if the filtergraph is reconfigured later */
+                /* limit the lists of allowed formats to the ones selected, to
+                 * make sure they stay the same if the filtergraph is reconfigured later */
 					av_buffersink_get_format()
 					av_buffersink_get_w()
 					av_buffersink_get_h()
@@ -514,7 +512,6 @@ main()
 									write_packet() // Same Calls as above
 
 							av_frame_unref()
-
 					AUD:
 						ffmpeg.c::do_audio_out()
 							av_init_packet()
@@ -650,7 +647,6 @@ main()
 							ffmpeg.c::close_output_stream() // CSAA
 
 						// force the input stream PTS and other ptd, dts, settings
-
 						AUD:
 							av_get_audio_frame_duration()
 							av_rescale_delta()
@@ -718,4 +714,3 @@ main()
 		// Free all output streams, dicts
 	/// End of transcode()
 /// End of main()
-// Javascript, Rust, swift best
