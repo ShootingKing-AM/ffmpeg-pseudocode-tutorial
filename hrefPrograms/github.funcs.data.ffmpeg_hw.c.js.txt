@@ -1,0 +1,14 @@
+line,function
+L30,hw_device_get_by_type
+L44,hw_device_get_by_name
+L54,hw_device_add
+L69,hw_device_default_name
+L94,hw_device_init_from_string
+L231,hw_device_init_from_type
+L274,hw_device_free_all
+L286,hw_device_match_by_codec
+L303,hw_device_setup_for_decode
+L419,hw_device_setup_for_encode
+L474,hwaccel_retrieve_data
+L516,hwaccel_decode_init
+L525,hw_device_setup_for_filter
